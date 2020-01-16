@@ -5,12 +5,12 @@ public class StarfieldGenerator : MonoBehaviour
     [Tooltip("Set in Inspector")]
     [SerializeField] private GameObject star;
     [SerializeField] private int numberOfStars;
-    [SerializeField] private float minDistance = 1;
-    [SerializeField] private float maxDistance = 1000;
+    [SerializeField] private float minStarDistance = 1;
+    [SerializeField] private float maxStarDistance = 1000;
     [SerializeField] private bool rotateToFacePlayer = true;
 
     private GameObject player;
-    GameObject tempInstantiatedObject;
+    private GameObject tempStar;
 
     // Start is called before the first frame update
     void Start()
@@ -20,23 +20,22 @@ public class StarfieldGenerator : MonoBehaviour
         {
             InstantiateRandomObject(star);
         }
-
     }
 
     void InstantiateRandomObject(GameObject go)
     {
         Vector3 randomPos = player.transform.position + 
-                            (Random.onUnitSphere * Random.Range(minDistance, maxDistance));
-        tempInstantiatedObject = Instantiate(go, randomPos, Quaternion.identity, this.transform); 
+                            (Random.onUnitSphere * Random.Range(minStarDistance, maxStarDistance));
+        tempStar = Instantiate(go, randomPos, Quaternion.identity, this.transform); 
         if(rotateToFacePlayer)
         {
-            LookAtTarget(tempInstantiatedObject, player);
+            LookAtTarget(tempStar, player);
         }
     }
 
-    // make a looker rotate to face a target
-    void LookAtTarget(GameObject looker, GameObject target)
+    // make an instantiated star rotate to face a target
+    void LookAtTarget(GameObject star, GameObject target)
     {
-        looker.transform.LookAt(target.transform);
+        star.transform.LookAt(target.transform);
     }
 }

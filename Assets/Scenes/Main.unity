@@ -225,8 +225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 8174583832608707908, guid: 8adb68cc555ce1b43b2d4f98053c22b6, type: 3}
   numberOfStars: 100
-  minDistance: 35
-  maxDistance: 1000
+  minStarDistance: 100
+  maxStarDistance: 500
   rotateToFacePlayer: 1
 --- !u!4 &631308643
 Transform:
