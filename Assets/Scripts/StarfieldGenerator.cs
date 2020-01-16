@@ -18,11 +18,11 @@ public class StarfieldGenerator : MonoBehaviour
         player = Camera.main.gameObject;
         for (int i = 0; i < numberOfStars; i++)
         {
-            InstantiateRandomObject(star);
+            InstantiateRandomLocationInSpace(star);
         }
     }
 
-    void InstantiateRandomObject(GameObject go)
+    void InstantiateRandomLocationInSpace(GameObject go)
     {
         Vector3 randomPos = player.transform.position + 
                             (Random.onUnitSphere * Random.Range(minStarDistance, maxStarDistance));
