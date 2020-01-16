@@ -8,6 +8,12 @@ public class StarFlicker : MonoBehaviour
     [Range(0, 1)]
     float flickerChance = .4f;
 
+    [SerializeField]
+    [Range(0, 10)]
+    float flickerRate = 1;
+
+    // private variables
+    float x, y; // for Perlin noise
     float randomOffset; //use this so stars don't all flicker in unison
 
     SpriteRenderer sr;
@@ -38,8 +44,8 @@ public class StarFlicker : MonoBehaviour
     void FlickerAlpha()
     {
         tempColor = sr.color;
-        float x = Mathf.Clamp(Mathf.Cos(Time.timeSinceLevelLoad + randomOffset), 0, 1);
-        float y = Mathf.Clamp(Mathf.Sin(Time.timeSinceLevelLoad + randomOffset), 0, 1);
+        x = Mathf.Clamp(Mathf.Cos(Time.timeSinceLevelLoad + randomOffset) * flickerRate, 0, 1);
+        y = Mathf.Clamp(Mathf.Sin(Time.timeSinceLevelLoad + randomOffset) * flickerRate, 0, 1);
         tempColor.w = Mathf.PerlinNoise(x, y);
 
         sr.color = tempColor;

@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flickerChance: 0.45
+  flickerRate: 1
