@@ -1,3 +1,3 @@
 # PixelStarTest
 
-This is a prototype of a random sprite-based starfield creator for VR.
+This is a Unity prototype of a random sprite-based starfield creator for VR.
