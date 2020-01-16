@@ -27,7 +27,7 @@ public class StarfieldGenerator : MonoBehaviour
     {
         Vector3 randomPos = player.transform.position + 
                             (Random.onUnitSphere * Random.Range(minDistance, maxDistance));
-        tempInstantiatedObject = Instantiate(go, randomPos, Quaternion.identity); 
+        tempInstantiatedObject = Instantiate(go, randomPos, Quaternion.identity, this.transform); 
         if(rotateToFacePlayer)
         {
             LookAtTarget(tempInstantiatedObject, player);
